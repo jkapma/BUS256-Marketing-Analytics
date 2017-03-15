@@ -67,7 +67,7 @@ inspect(dairy.rules)  # 58 rules - when the support = 0.025. If we use the suppo
 #  ---------------------------------------------------------------------------
 # select association rules using thresholds for support and confidence 
 second.rules <- apriori(groceries, 
-                        parameter = list(support = 0.0343, confidence = 0.05))
+                        parameter = list(support = 0.0341, confidence = 0.05))
 print(summary(second.rules))  # yields 201 rules
 
 #  ---------------------------------------------------------------------------
@@ -76,7 +76,7 @@ print(summary(second.rules))  # yields 201 rules
 
 # select association rules using thresholds for support and confidence 
 second.rules <- apriori(groceries, 
-                        parameter = list(support = 0.0343, confidence = 0.01))
+                        parameter = list(support = 0.0341, confidence = 0.01))
 print(summary(second.rules))  # yields 206 rules
 
 #  ---------------------------------------------------------------------------
@@ -86,7 +86,7 @@ print(summary(second.rules))  # yields 206 rules
 # examine frequency for each item with support greater than 0.025
 pdf(file="fig_market_basket_initial_item_support.pdf", 
     width = 8.5, height = 11)
-itemFrequencyPlot(Groceries, support = 0.0343, cex.names=0.8, xlim = c(0,0.3),
+itemFrequencyPlot(Groceries, support = 0.0341, cex.names=0.8, xlim = c(0,0.3),
                   type = "relative", horiz = TRUE, col = "dark red", las = 1,
                   xlab = paste("Proportion of Market Baskets Containing Item",
                                "\n(Item Relative Frequency or Support)"))
@@ -95,7 +95,7 @@ dev.off()
 
 
 pdf(file="fig_market_basket_final_item_support.pdf", width = 8.5, height = 11)
-itemFrequencyPlot(groceries, support = 0.0343, cex.names=1.0, xlim = c(0,0.5),
+itemFrequencyPlot(groceries, support = 0.0341, cex.names=1.0, xlim = c(0,0.5),
                   type = "relative", horiz = TRUE, col = "blue", las = 1,
                   xlab = paste("Proportion of Market Baskets Containing Item",
                                "\n(Item Relative Frequency or Support)"))
@@ -126,12 +126,3 @@ plot(top.dairy.rules, method="graph",
      control=list(type="items"), 
      shading = "lift")
 dev.off() 
-
-#test
-
-# Suggestions for the student:
-# Suppose your client is someone other than the local farmer,
-# a meat producer/butcher, dairy, or brewer perhaps.
-# Determine association rules relevant to your client's products
-# guided by the market basket model. What recommendations
-# would you make about future marketplace actions?
